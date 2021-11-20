@@ -12,9 +12,7 @@ file = open("HistoryPrice.txt", 'a')
 if game == "":
     game = "csgo"
 
-a=0
-while a!=10:
-    a+=1
+while True:
     InfoJson = getinfo.getinfo(game, goods_id)
     NumJson = getinfo.getnum(game, goods_name, cookie)
 
