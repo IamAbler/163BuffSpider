@@ -1,5 +1,6 @@
 import json
 import getinfo
+import csv
 import time
 
 game = input("game:\n")
@@ -7,6 +8,8 @@ goods_id = input("goods_id:\n")
 SleepTime = int(input("SleepTime:\n"))
 cookie = input("cookie:\n")
 file = open("HistoryPrice.txt", 'a')
+csvfile = open('HistoryPrice.csv', 'a', newline='')
+csv_writer = csv.writer(csvfile)
 
 if game == "":
     game = "csgo"
@@ -39,8 +42,10 @@ while True:
     ticks = time.strftime('%Y年%m月%d日%H:%M:%S', time.localtime())
 
     file.write("%s %s %s\n" % (ticks, info_price, sell_num))
+    csv_writer.writerow([ticks, info_price, sell_num])
     print("%s %s %s" % (ticks, info_price, sell_num))
     file.flush()
+    csvfile.flush()
     print("Done.")
 
     time.sleep(SleepTime)
