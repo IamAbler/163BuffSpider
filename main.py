@@ -18,7 +18,6 @@ while True:
 
     num = json.loads(NumJson)
     info = json.loads(InfoJson)
-    print(num)
 
     info_data = info['data']
     info_items = info_data['items']
