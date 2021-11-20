@@ -15,7 +15,7 @@ if game == "":
     game = "csgo"
 
 while True:
-    InfoJson = getinfo.getinfo(game, goods_id)
+    InfoJson = getinfo.getinfo(game, goods_id, cookie)
     info = json.loads(InfoJson)
 
     info_data = info['data']
