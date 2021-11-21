@@ -2,14 +2,23 @@ import json
 import getinfo
 import csv
 import time
+import random
 
 game = input("game:\n")
 goods_id = input("goods_id:\n")
-SleepTime = int(input("SleepTime:\n"))
+MaxSleepTime = int(input("MaxSleepTime:\n"))
+MinSleepTime = int(input("MinSleepTime:\n"))
+
+while MaxSleepTime < MinSleepTime:
+    print("MaxSleepTime need larger than MinSleepTime,pls try again.")
+    MaxSleepTime = int(input("MaxSleepTime:\n"))
+    MinSleepTime = int(input("MinSleepTime:\n"))
+
 cookie = input("cookie:\n")
 file = open("HistoryPrice.txt", 'a')
 csvfile = open('HistoryPrice.csv', 'a', newline='')
 csv_writer = csv.writer(csvfile)
+
 
 if game == "":
     game = "csgo"
@@ -48,4 +57,5 @@ while True:
     csvfile.flush()
     print("Done.")
 
+    SleepTime = random.randint(MinSleepTime, MaxSleepTime)
     time.sleep(SleepTime)
