@@ -1,5 +1,5 @@
 import json
-import getinfo
+import GetInfo
 import csv
 import time
 import random
@@ -24,7 +24,7 @@ if game == "":
     game = "csgo"
 
 while True:
-    InfoJson = getinfo.getinfo(game, goods_id, cookie)
+    InfoJson = GetInfo.getinfo(game, goods_id, cookie)
     info = json.loads(InfoJson)
 
     info_data = info['data']
@@ -35,13 +35,8 @@ while True:
     goods_info = goods_infos[goods_id]
     goods_name = goods_info['name']
 
-    NumJson = getinfo.getnum(game, goods_name, cookie)
+    NumJson = GetInfo.getnum(game, goods_name, cookie)
     num = json.loads(NumJson)
-
-    num_data = num['data']
-    num_items = num_data['items']
-    num_item = num_items[0]
-    sell_num = num_item['sell_num']
 
     num_data = num['data']
     num_items = num_data['items']
