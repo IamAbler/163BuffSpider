@@ -3,6 +3,8 @@ import GetInfo
 import csv
 import time
 import random
+import DrawChart
+
 
 game = input("game:\n")
 goods_id = input("goods_id:\n")
@@ -54,3 +56,4 @@ while True:
 
     SleepTime = random.randint(MinSleepTime, MaxSleepTime)
     time.sleep(SleepTime)
+    DrawChart.drawchart()
